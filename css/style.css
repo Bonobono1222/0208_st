@@ -15,10 +15,6 @@ a {
   color: #555;
 }
 
-img {
-  display: none;
-}
-
 #wrapper {
   position: fixed;
   width: 100%;
@@ -161,12 +157,13 @@ nav ul li a {
   color: #111;
   letter-spacing: 3px;
   /*letter-spacing 글자 사이 간격을 지정해줌*/
+  transition: all 500ms;
 }
 
 nav ul li:hover a,
 nav ul li.on a {
   color: #fff;
-  background: linear-gradient(270deg, rgba(106, 133, 223, 0.8), rgba(52, 54, 146, 0.8), rgba(34,34,34,0), rgba(34,34,34,0));
+  background: linear-gradient(340deg, rgba(106, 133, 223, 0.8), rgba(52, 54, 146, 0.8), rgba(34,34,34,0), rgba(34,34,34,0));
   border: 1px solid #fff;
   opacity: .8;
 }
@@ -205,6 +202,104 @@ nav ul li.on a {
   background-image: url(../images/phone_night.png);
 }
 
+/* night일 경우 로고, 컬러 변경*/
+
+#wrapper.night h1 {
+  background: url(../images/logo_w.png) no-repeat;
+  background-size: contain;
+  /*contain 안 주면 이미지가 잘림*/
+}
+
+#wrapper.night .gnb a {
+  color: #fff;
+}
+
+#wrapper.night .gnb li a:hover::after {
+  border-bottom: 2px solid #fff;
+}
+
+#wrapper.night strong {
+  color: #fff;
+}
+
+#wrapper.night p,
+#wrapper.night em {
+  color: #999;
+} 
+
+#wrapper.night #phone p {
+  color: #fff;
+}
+
+#wrapper > img:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .8;
+  z-index: -1;
+  width: 600px;
+  animation-name: ani1;
+  animation-duration: 100s;
+  /*애니메이션을 얼마 동안 실행할건지*/
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /*애니메이션을 무한반복하겠다*/
+}
+
+#wrapper > img:nth-child(2) {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  opacity: .8;
+  z-index: -1;
+  animation: ani2 100s linear infinite;
+  /*이름-duration-timing-function*/
+}
+
+#phone p .cloud1 {
+  width: 600px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: ani1 100s linear infinite;
+}
+
+#phone p .cloud2 {
+  width: 600px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  animation: ani2 100s linear infinite;
+}
+
+
+@keyframes ani1 {
+  0% {
+  /*0%로 시작해서*/
+  left: -100vw;
+  }
+  100% {
+  /*100%까지 이렇게 움직일거야*/
+  left: 100vw;
+  }
+}
+
+@keyframes ani2 {
+  0% {
+  /*0%로 시작해서*/
+  left: 0;
+  }
+  50% {
+    left: 1200px;
+  }
+  60% {
+    left: -1200px;
+  }
+  100% {
+  /*100%까지 이렇게 움직일거야*/
+  left: 100vw;
+  }
+}/*애니메이션을 어떻게 작동 시키고 싶은지에 따라서 구간 추가 할 수 있음.*/
 
 
 

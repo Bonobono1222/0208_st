@@ -30,7 +30,7 @@ setInterval(function() {
   $("#phone p span").eq(1).text(mnum);
   $("#phone p span").eq(2).text(snum);
 
-  })
+  });
 
   let now = new Date(); //now변수에 현재 시간을 담아줌
   let hr = now.getHours(); //시간
@@ -40,9 +40,11 @@ setInterval(function() {
     $("#wrapper").addClass("morning");
     $("nav li").eq(0).addClass("on");
   } else if(hr >= 12 && hr < 16) {
+    //시간이 12보다 크거나 같고 16보다 작을 때
     $("#wrapper").addClass("afternoon");
     $("nav li").eq(1).addClass("on");
   } else if(hr >=16 && hr < 20) {
+    //시간이 16보다 크거나 같고 20보다 작을 때
     $("#wrapper").addClass("evening");
     $("nav li").eq(2).addClass("on");
   } else {
